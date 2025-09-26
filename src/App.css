@@ -114,3 +114,81 @@ body {
 .delete-btn:hover {
   background-color: #c0392b;
 }
+/* --- Drills Component Styles --- */
+.drills-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.drill-form {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid #ddd;
+}
+
+.drill-form input,
+.drill-form select,
+.drill-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.drill-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.drill-form button:hover {
+  background-color: #2980b9;
+}
+
+.drills-list {
+  margin-top: 1rem;
+}
+
+.drill-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.drill-header {
+  background-color: #ecf0f1;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.drill-category-badge {
+  background-color: #34495e;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+.drill-content {
+  padding: 1rem;
+  background-color: #fff;
+  white-space: pre-wrap;
+  border-top: 1px solid #ddd;
+}
