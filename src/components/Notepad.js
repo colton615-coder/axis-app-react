@@ -1,29 +1,29 @@
 // src/components/Notepad.js
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Notepad() {
-  // State to hold the array of notes
-  const [notes, setNotes] = useState([]);
+  // 1. Update useState to load initial notes from localStorage.
+  // This function now only runs on the very first render.
+  const [notes, setNotes] = useState(() => {
+    const savedNotes = localStorage.getItem('axis-app-notes');
+    return savedNotes ? JSON.parse(savedNotes) : [];
+  });
   
-  // State to hold the text of the new note being typed
   const [newNote, setNewNote] = useState('');
 
-  // Function to handle adding a new note
+  // 2. Add a useEffect hook to save notes whenever the 'notes' state changes.
+  useEffect(() => {
+    localStorage.setItem('axis-app-notes', JSON.stringify(notes));
+  }, [notes]); // The [notes] dependency array tells React to run this effect only when 'notes' changes.
+
   const handleAddNote = () => {
-    // Don't add empty notes
     if (newNote.trim() === '') return;
-    
-    // Add the new note to the existing notes array
     setNotes([...notes, newNote]);
-    
-    // Clear the input field
     setNewNote('');
   };
 
-  // Function to handle deleting a note by its index
   const handleDeleteNote = (indexToDelete) => {
-    // Create a new array excluding the note at the given index
     const updatedNotes = notes.filter((_, index) => index !== indexToDelete);
     setNotes(updatedNotes);
   };
