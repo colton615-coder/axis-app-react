@@ -206,3 +206,23 @@ body {
 .add-to-plan-btn:hover {
   background-color: #229954;
 }
+/* --- Session Notes Styles --- */
+.session-notes {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #eee;
+}
+
+.session-notes h3 {
+  text-align: left;
+}
+
+.session-notes textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
