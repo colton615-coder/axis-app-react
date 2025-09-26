@@ -48,3 +48,69 @@ body {
 .App-main {
   padding: 20px;
 }
+/* --- Notepad Component Styles --- */
+.notepad-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.note-form textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.note-form button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.note-form button:hover {
+  background-color: #229954;
+}
+
+.notes-list {
+  margin-top: 2rem;
+}
+
+.note-item {
+  background-color: #ecf0f1;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  word-break: break-word;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
