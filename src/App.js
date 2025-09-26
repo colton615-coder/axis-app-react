@@ -3,31 +3,37 @@ import './App.css';
 
 import Drills from './components/Drills';
 import Notepad from './components/Notepad';
-import PracticePlan from './components/PracticePlan'; // Import our new component
+import PracticePlan from './components/PracticePlan';
 
 function App() {
   const [activeTab, setActiveTab] = useState('Plan');
   
-  // State for the practice plan now lives in the main App component
   const [plan, setPlan] = useState(() => {
     const savedPlan = localStorage.getItem('axis-app-plan');
     return savedPlan ? JSON.parse(savedPlan) : [];
   });
 
-  // Effect to save the plan to localStorage whenever it changes
+  // 1. Add new state for the session notes
+  const [sessionNotes, setSessionNotes] = useState(() => {
+    const savedNotes = localStorage.getItem('axis-app-sessionNotes');
+    return savedNotes || ''; // Notes are a simple string
+  });
+
   useEffect(() => {
     localStorage.setItem('axis-app-plan', JSON.stringify(plan));
   }, [plan]);
 
-  // Function to add a drill to the plan
+  // 2. Add new effect to save session notes when they change
+  useEffect(() => {
+    localStorage.setItem('axis-app-sessionNotes', sessionNotes);
+  }, [sessionNotes]);
+
   const addToPlan = (drillToAdd) => {
-    // Prevent adding the same drill twice
     if (!plan.find(drill => drill.id === drillToAdd.id)) {
       setPlan([...plan, drillToAdd]);
     }
   };
   
-  // Function to remove a drill from the plan
   const removeFromPlan = (idToRemove) => {
     setPlan(plan.filter(drill => drill.id !== idToRemove));
   };
@@ -41,8 +47,8 @@ function App() {
         <button className={activeTab === 'Notepad' ? 'nav-tab active' : 'nav-tab'} onClick={() => setActiveTab('Notepad')}>Notepad</button>
       </nav>
       <main className="App-main">
-        {/* Render components based on the active tab */}
-        {activeTab === 'Plan' && <PracticePlan plan={plan} removeFromPlan={removeFromPlan} />}
+        {/* 3. Pass the session notes and the function to update them down to the PracticePlan component */}
+        {activeTab === 'Plan' && <PracticePlan plan={plan} removeFromPlan={removeFromPlan} sessionNotes={sessionNotes} setSessionNotes={setSessionNotes} />}
         {activeTab === 'Library' && <Drills addToPlan={addToPlan} />}
         {activeTab === 'Notepad' && <Notepad />}
       </main>
