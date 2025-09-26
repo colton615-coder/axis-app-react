@@ -226,3 +226,43 @@ body {
   font-size: 1rem;
   box-sizing: border-box;
 }
+/* --- Responsive Design (for screens smaller than 768px) --- */
+@media (max-width: 768px) {
+  /* Reduce padding on the main content area */
+  .App-main {
+    padding: 10px;
+  }
+
+  /* Make the main navigation stack vertically */
+  .App-nav {
+    flex-direction: column;
+  }
+
+  /* Reduce header font size */
+  .App-header h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Adjust drill form padding */
+  .drill-form {
+    padding: 1rem;
+  }
+
+  /* Stack the drill header content on mobile */
+  .drill-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Ensure buttons in drill header align nicely */
+  .drill-header div {
+    display: flex;
+    width: 100%;
+  }
+
+  .drill-header .add-to-plan-btn,
+  .drill-header .delete-btn {
+    flex-grow: 1;
+  }
+}
